@@ -11,10 +11,8 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
-  {
-    path: 'connexionjury',
-    loadChildren: () => import('./connexionjury/connexionjury.module').then( m => m.ConnexionjuryPageModule)
-  },
+  
+
   {
     path: 'connexionvotant',
     loadChildren: () => import('./connexionvotant/connexionvotant.module').then( m => m.ConnexionvotantPageModule)
@@ -39,6 +37,11 @@ const routes: Routes = [
     path: 'resultats',
     loadChildren: () => import('./resultats/resultats.module').then( m => m.ResultatsPageModule)
   },
+  {
+    path: 'loginjury',
+    loadChildren: () => import('./loginjury/loginjury.module').then( m => m.LoginjuryPageModule)
+  },
+ 
 ];
 
 @NgModule({

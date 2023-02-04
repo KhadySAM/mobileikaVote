@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ConnexionjuryPageRoutingModule } from './connexionjury-routing.module';
+import { LoginjuryPageRoutingModule } from './loginjury-routing.module';
 
-import { ConnexionjuryPage } from './connexionjury.page';
+import { LoginjuryPage } from './loginjury.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ConnexionjuryPageRoutingModule
+    LoginjuryPageRoutingModule
   ],
-  declarations: [ConnexionjuryPage]
+  declarations: [LoginjuryPage]
 })
-export class ConnexionjuryPageModule {}
+export class LoginjuryPageModule {}

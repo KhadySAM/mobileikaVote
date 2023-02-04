@@ -1,104 +1,153 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>evenements</ion-title>
+    <ion-row></ion-row>
+    <div class="headImg" ><img src="../../assets/image/phot1.png" />Les evenements</div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-content>
+  <!-- <ion-row class="headImg"><img src="../../assets/image/phot1.png" /></ion-row> -->
+  <ion-grid class="grid">
+    <ion-row>
 
-    <div class="row">
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title style="text-align: center;">Evénéments</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-list>
-            <ion-item>
-              <ion-thumbnail slot="start">
-                <img src="assets/image/1.jpg/" />
-              </ion-thumbnail>
-              <ion-label>
-                <ion-accordion-group>
-                  <ion-accordion value="first">
-                    <ion-item slot="header" color="light">
-                      <ion-label>Evenement 1</ion-label>
-                    </ion-item>
-                    <div class="ion-padding" slot="content">
-                      <a href="">Detail Evenement</a><br>
-                      <a href="">Evaluer</a><br>
-                      <a href="">Resultat</a>
-                    </div>
-                  </ion-accordion>
-                </ion-accordion-group>
-              </ion-label>
-            </ion-item>
-      
-            <ion-item>
-              <ion-thumbnail slot="start">
-                <img alt="Silhouette of mountains" src="assets/image/2.jpg/" />
-              </ion-thumbnail>
-              <ion-label>
-                <ion-accordion-group>
-                  <ion-accordion value="first">
-                    <ion-item slot="header" color="light">
-                      <ion-label>Evenement 2</ion-label>
-                    </ion-item>
-                    <div class="ion-padding" slot="content">
-                      <a href="">Detail Evenement</a><br>
-                      <a href="">Evaluer</a><br>
-                      <a href="">Resultat</a>
-                    </div>
-                  </ion-accordion>
-                </ion-accordion-group>
-              </ion-label>
-            </ion-item>
-      
-            <ion-item>
-              <ion-thumbnail slot="start">
-                <img alt="Events" src="assets/image/3.jpg/" />
-              </ion-thumbnail>
-              <ion-label>
-                <ion-accordion-group>
-                  <ion-accordion value="first">
-                    <ion-item slot="header" color="light">
-                      <ion-label>Evenement 3</ion-label>
-                    </ion-item>
-                    <div class="ion-padding" slot="content">
-                      <a href="">Detail Evenement</a><br>
-                      <a href="">Evaluer</a><br>
-                      <a href="">Resultat</a>
-                    </div>
-                  </ion-accordion>
-                </ion-accordion-group>
-              </ion-label>
-              
-            </ion-item>
-      
-            <ion-item lines="none">
-              <ion-thumbnail slot="start">
-                <img alt="Silhouette of mountains" src="assets/image/1.jpg/" />
-              </ion-thumbnail>
-              <ion-label>
-                <ion-accordion-group>
-                  <ion-accordion value="first">
-                    <ion-item slot="header" color="light">
-                      <ion-label>Evenement 1</ion-label>
-                    </ion-item>
-                    <div class="ion-padding" slot="content">
-                      <a >Detail Evenement</a><br>
-                      <!-- <a href="#">Jury</a><br> -->
-                      <a routerLink="/projets">Evaluer</a><br>
-                      <a href="">Resultat</a>
-                    </div>
-                  </ion-accordion>
-                </ion-accordion-group>
-              </ion-label>
-            </ion-item>
-          </ion-list>
-        </ion-card-content>
-      </ion-card>
-    </div>
-  
-  </ion-content>
+      <ion-col size-xs="12">
+
+          <ion-card-header>
+            
+          </ion-card-header>
+
+            <ion-list *ngFor="let evenement  of lesEvents " >
+              <ion-item>
+                <ion-thumbnail slot="start">
+                  <img src="{{evenement.images}}" />
+                </ion-thumbnail>
+                <ion-label>
+                  <ion-accordion-group>
+                    <ion-accordion value="first">
+                      <ion-item slot="header" >
+                        <ion-label>{{evenement.libelle}}</ion-label>
+                      </ion-item>
+                      <div class="ion-padding" slot="content">
+                        <a href="">Voir +</a><br>
+                        <a href=""  routerLink="/evaluation">Evaluer</a><br>
+                        <a href="">Resultat</a>
+                      </div>
+                    </ion-accordion>
+                  </ion-accordion-group>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+
+            <!-- <ion-list>
+              <ion-item>
+                <ion-thumbnail slot="start">
+                  <img src="../../assets/image/phot1.png" />
+                </ion-thumbnail>
+                <ion-label>
+                  <ion-accordion-group>
+                    <ion-accordion value="first">
+                      <ion-item slot="header" >
+                        <ion-label>OSC 2022-2023</ion-label>
+                      </ion-item>
+                      <div class="ion-padding" slot="content">
+                        <a href="">Detail Evenement</a><br>
+                        <a href=""  routerLink="/evaluation">Evaluer</a><br>
+                        <a href="">Resultat</a>
+                      </div>
+                    </ion-accordion>
+                  </ion-accordion-group>
+                </ion-label>
+              </ion-item>
+            </ion-list> -->
+
+            <!-- <ion-list>
+              <ion-item>
+                <ion-thumbnail slot="start">
+                  <img src="../../assets/image/phot1.png" />
+                </ion-thumbnail>
+                <ion-label>
+                  <ion-accordion-group>
+                    <ion-accordion value="first">
+                      <ion-item slot="header" >
+                        <ion-label>OSC 2022-2023</ion-label>
+                      </ion-item>
+                      <div class="ion-padding" slot="content">
+                        <a href="">Detail Evenement</a><br>
+                        <a href=""  routerLink="/evaluation">Evaluer</a><br>
+                        <a href="">Resultat</a>
+                      </div>
+                    </ion-accordion>
+                  </ion-accordion-group>
+                </ion-label>
+              </ion-item>
+            </ion-list> -->
+
+            <!-- <ion-list>
+              <ion-item>
+                <ion-thumbnail slot="start">
+                  <img src="../../assets/image/phot1.png" />
+                </ion-thumbnail>
+                <ion-label>
+                  <ion-accordion-group>
+                    <ion-accordion value="first">
+                      <ion-item slot="header" >
+                        <ion-label>OSC 2022-2023</ion-label>
+                      </ion-item>
+                      <div class="ion-padding" slot="content">
+                        <a href="">Detail Evenement</a><br>
+                        <a href=""  routerLink="/evaluation">Evaluer</a><br>
+                        <a href="">Resultat</a>
+                      </div>
+                    </ion-accordion>
+                  </ion-accordion-group>
+                </ion-label>
+              </ion-item>
+            </ion-list> -->
+
+            <!-- <ion-list>
+              <ion-item>
+                <ion-thumbnail slot="start">
+                  <img src="../../assets/image/phot1.png" />
+                </ion-thumbnail>
+                <ion-label>
+                  <ion-accordion-group>
+                    <ion-accordion value="first">
+                      <ion-item slot="header" >
+                        <ion-label>OSC 2022-2023</ion-label>
+                      </ion-item>
+                      <div class="ion-padding" slot="content">
+                        <a href="">Detail Evenement</a><br>
+                        <a href=""  routerLink="/evaluation">Evaluer</a><br>
+                        <a href="">Resultat</a>
+                      </div>
+                    </ion-accordion>
+                  </ion-accordion-group>
+                </ion-label>
+              </ion-item>
+            </ion-list> -->
+            <!-- <ion-list>
+              <ion-item>
+                <ion-thumbnail slot="start">
+                  <img src="../../assets/image/phot1.png" />
+                </ion-thumbnail>
+                <ion-label>
+                  <ion-accordion-group>
+                    <ion-accordion value="first">
+                      <ion-item slot="header" >
+                        <ion-label>OSC 2022-2023</ion-label>
+                      </ion-item>
+                      <div class="ion-padding" slot="content">
+                        <a href="">Detail Evenement</a><br>
+                        <a href=""  routerLink="/evaluation">Evaluer</a><br>
+                        <a href="">Resultat</a>
+                      </div>
+                    </ion-accordion>
+                  </ion-accordion-group>
+                </ion-label>
+              </ion-item>
+            </ion-list> -->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+

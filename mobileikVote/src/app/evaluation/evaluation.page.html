@@ -7,21 +7,22 @@
 <ion-content>
 
   <div class="critere">
-    <ion-range [min]="0" [max]="10" (ionChange)="onIonChange($event)"></ion-range>
-    <ion-label style="margin-top: 1%;">Qualite du Pitch: {{ lastEmittedValue }}</ion-label>
+    <ion-label > <h2>Qualite du Pitch: {{ lastEmittedValue }}</h2> </ion-label>
     <ion-label>Combien donnez -vous a ce projet pur la qualité du pitch !</ion-label>
+    <ion-range [min]="0" [max]="10" (ionChange)="onIonChange($event)"></ion-range>
+   
   </div>
 
   <div class="critere">
-    <ion-range [min]="0" [max]="10" (ionChange)="onIonChange($event)"></ion-range>
     <ion-label>Flayers: {{ lastEmittedValue }}</ion-label>
     <ion-label>Combien donnez -vous a ce projet pur la qualité du pitch !</ion-label>
+    <ion-range [min]="0" [max]="10" (ionChange)="onIonChange($event)"></ion-range>
   </div>
 
   <div class="critere">
-    <ion-range [min]="0" [max]="10" (ionChange)="onIonChange($event)"></ion-range>
     <ion-label>Concept: {{ lastEmittedValue }}</ion-label>
     <ion-label>Combien donnez -vous a ce projet pur la qualité du pitch !</ion-label>
+    <ion-range [min]="0" [max]="10" (ionChange)="onIonChange($event)"></ion-range>
   </div>
 
   <div>

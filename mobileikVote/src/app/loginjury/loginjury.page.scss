@@ -1,0 +1,114 @@
+.containeurLogo{
+    text-align: center;
+    margin-top: 45%;
+
+}
+.alert{
+    color: red;
+}
+.formLogin{
+    margin-top: 15%;
+    text-align: center;
+}
+.formLogin .emailForm{
+    margin: 2% auto;
+    border: 1px solid #0C85F8;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 95%;
+
+}
+.formLogin .passwordForm{
+    margin: 2% auto;
+    border: 1px solid #0C85F8;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 95%;
+}
+
+.Connexion button{
+    margin-top: 20px;
+    background-color: #0C85F8;
+    text-align: center;
+    padding: 10px ;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: capitalize;
+    color: white;
+    border-radius: 5px;
+}
+
+//  ==========================================BOUTONS Oauth2
+
+.oauth2{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    gap: 10px;
+   
+}
+.oauth2 ion-icon{
+    font-size: 30px;
+    cursor: pointer;
+}
+.creerCompte{
+    margin-top: 20px;
+}
+.creerCompte a{
+    text-decoration: none;
+    font-size: 15px;
+    color: #0C85F8;
+    font-weight: 800;
+}
+
+
+
+
+
+
+
+
+
+// =============================================================== MODAL
+ion-modal#example-modal {
+    --width: fit-content;
+    --min-width: 250px;
+    --height: fit-content;
+    --border-radius: 6px;
+    --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+  }
+  
+  ion-modal#example-modal h1 {
+    margin: 20px 20px 10px 20px;
+  }
+  
+  ion-modal#example-modal ion-icon {
+    margin-right: 6px;
+  
+    width: 48px;
+    height: 48px;
+  
+    padding: 4px 0;
+  
+    color: #aaaaaa;
+  }
+  
+  ion-modal#example-modal .wrapper {
+    margin-bottom: 10px;
+  }
+
+  .forms h2{
+    font-size: 15px;
+    margin: 10px;
+    color: #0C85F8;
+    font-weight: bold;
+  }
+  .forms button{
+
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #0C85F8;
+    color: white;
+    margin: 10px auto !important;
+  }
