@@ -1,20 +1,38 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
       Blank
     </ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content [fullscreen]="true" >
+  <div class="container">
+    <div class="row">
+      <div class="text-center">
+        <img src="../../assets/image/mylogo.png" >
+      </div>
+    </div>
+    <div class="row">
+      <div class="text-center" style="color: white;">
+        <h2>Bienvenu !</h2>
+        <p>Mecri de choisir votre profil</p>
+      </div>
+    </div>
   </div>
+  <div class="but">
+    <div class="row">
+      <div>
+        <ion-button expand="block" routerLink="/connexionjury" >Authentification Jury</ion-button>
+      </div>
+      <div>
+        <ion-button expand="block">Authentification votant</ion-button>
+      </div>
+      
+    </div>
+  </div>
+  
 </ion-content>
+<ion-footer>
+  <img class="logo" src="../../assets/image/mylogo.png" >
+</ion-footer>
