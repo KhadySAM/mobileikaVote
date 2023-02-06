@@ -22,15 +22,15 @@ const routes: Routes = [
     loadChildren: () => import('./evenements/evenements.module').then( m => m.EvenementsPageModule)
   },
   {
-    path: 'projets',
+    path: 'projets/:id',
     loadChildren: () => import('./projets/projets.module').then( m => m.ProjetsPageModule)
   },
   {
-    path: 'evaluation',
+    path: 'evaluation/:id',
     loadChildren: () => import('./evaluation/evaluation.module').then( m => m.EvaluationPageModule)
   },
   {
-    path: 'detailevents',
+    path: 'detailevents/:id',
     loadChildren: () => import('./detailevents/detailevents.module').then( m => m.DetaileventsPageModule)
   },
   {

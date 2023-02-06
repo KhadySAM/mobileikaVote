@@ -27,6 +27,7 @@
     "@ionic/angular": "^6.5.2",
     "@ionic/core": "^6.5.2",
     "bootstrap": "^5.2.3",
+    "chart.js": "^4.2.0",
     "g": "^2.0.1",
     "ionicons": "^6.0.3",
     "rxjs": "~7.5.0",

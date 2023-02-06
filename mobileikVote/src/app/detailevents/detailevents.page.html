@@ -1,32 +1,58 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>detailevents</ion-title>
-  </ion-toolbar>
+  <ion-header>
+    <div class="barre-menu">
+      <div class="element-menus">
+        <ion-buttons slot="start" >
+          <ion-back-button defaultHref="evenements"></ion-back-button>
+        </ion-buttons>
+        <div class="nomApp" style="flex-basis: 80%;">
+          {{libelle}}
+        </div>
+      </div>
+  
+    </div>
+  </ion-header>
 </ion-header>
 
-<ion-content style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+  <ion-content>
 
-  <div class="title" style="text-align: center;">
-    <h1 >Evenement 1</h1>
-  </div>
 
-  <ion-card >
-    <h3 style="text-align: center;">Détails</h3>
-    
-    <div class="tout">
-      <div class="date">
-        <p >Date debut : 18/01/2023 02:14</p>
-        <p >Date fin : 18/01/2023 05:14</p>
-        <p >Poucentage de note utilisateur : 55%</p>
-        <p >Poucentage de note Jury: 45%</p>
-        <p >Bareme  : 10</p>
-        <p >Nombre de votant : 50</p>
+
+    <div class="conteneurDetailChamp">
+      <div class="photoChamp">
+        <img class="monChamp" src="{{images}}" alt="Image du champ">
+        <!-- <div class="temperature" >{{temperatureActuelChamp}} °C</div> -->
+      </div>
+
+      <div class="detailChamp">
+        <div class="elementDetailChamp">
+          <div class="libelle">Date début:</div>
+          <div class="detail"> {{dateDebut | date: "dd MMMM yyyy à hh:mm"}}</div>
+        </div>
+        <div class="elementDetailChamp">
+          <div class="libelle">Date fin:</div>
+          <div class="detail">{{dateFin | date: "dd MMMM yyyy à hh:mm"}}</div>
+        </div>
+        <div class="elementDetailChamp">
+          <div class="libelle">Coéfficient votant</div>
+          <div class="detail">{{coefficientUser}}</div>
+        </div>
+        <div class="elementDetailChamp">
+          <div class="libelle">Coéfficient jury</div>
+          <div class="detail">{{coefficientJury}}</div>
+        </div>
+        <div class="elementDetailChamp">
+          <div class="libelle">Barème</div>
+          <div class="detail">{{bareme}}</div>
+        </div>
+        <div class="elementDetailChamp">
+          <div class="libelle">Nombre votant</div>
+          <div class="detail" >{{nbrevotant}}</div>
+        </div>
+        <!-- <div class="elementDetailChamp">
+          <div class="libelle">Pays</div>
+          <div class="detail">{{pays}}</div>
+        </div> -->
+
       </div>
     </div>
-  </ion-card>
-
-
-  <!-- button commencer -->
-      <!-- <button class="commencer"><a routerLink="/vote">Commencer</a></button> -->
-
-</ion-content>

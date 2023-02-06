@@ -14,4 +14,5 @@ export class EvenementsService {
   getAllEvents():Observable<any>{
     return this.http.get('http://localhost:8080/api/auth/getallevents');
   }
+
 }

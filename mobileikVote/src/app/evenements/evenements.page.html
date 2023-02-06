@@ -16,7 +16,7 @@
             
           </ion-card-header>
 
-            <ion-list *ngFor="let evenement  of lesEvents " >
+            <ion-list *ngFor="let evenement  of lesEvents" >
               <ion-item>
                 <ion-thumbnail slot="start">
                   <img src="{{evenement.images}}" />
@@ -28,9 +28,9 @@
                         <ion-label>{{evenement.libelle}}</ion-label>
                       </ion-item>
                       <div class="ion-padding" slot="content">
-                        <a href="">Voir +</a><br>
-                        <a href=""  routerLink="/evaluation">Evaluer</a><br>
-                        <a href="">Resultat</a>
+                        <a (click)="goDetailEvents(evenement.id)" >Voir +</a><br>
+                        <a (click)="goAllProjetByIdEvents(evenement.id)" >Evaluer</a><br>
+                        <a routerLink="/resultats">Resultat</a>
                       </div>
                     </ion-accordion>
                   </ion-accordion-group>

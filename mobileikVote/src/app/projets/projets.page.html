@@ -1,90 +1,31 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>projets</ion-title>
-  </ion-toolbar>
+  <div class="barre-menu">
+    <div class="element-menus">
+      <ion-buttons slot="start" >
+        <ion-back-button defaultHref="evenements"></ion-back-button>
+      </ion-buttons>
+      <div class="nomApp" style="flex-basis: 80%;">
+        {{libelle}}
+      </div>
+    </div>
+  </div>
 </ion-header>
 
-<ion-content style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+<ion-content>
+  <h6 class="text-center">Merci de voter pour tous les projets</h6>
+    <ion-card *ngFor="let projet  of allProjets " >
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <img src="{{projet.images}}" sizes="2" class="card-img" alt="image">
+          </ion-col>
+          <ion-col size="6">
+           <h3>{{projet.libelle}}</h3>
+            <ion-button (click)="goAllCritereByIdEvents(idEvents)">Noter</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+    
 
-  <div class="title" style="text-align: center;">
-    <h4>Orange Summer Challenge 2022-2023</h4>
-    <p>Listes des projets</p>
-  </div>
-
-  <!-- <form>
-    <ion-searchbar class="recherche" placeholder="recherche candidat" name="searchText"></ion-searchbar>
-  </form> -->
-
-  <ion-card>
-    <ion-grid style="background-color: rebeccapurple;">
-      <ion-row>
-        <ion-col size="4">
-          <img src="/assets/image/2.jpg" alt="Image" style="width: 100%; height: 100%;">
-        </ion-col>
-        <ion-col size="8">
-          <ion-card-header>
-            <!-- <ion-card-subtitle>Texte sous-titre</ion-card-subtitle> -->
-            <ion-card-title>Velo Kurani</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-button style="width: 80PX;" id="popover-button1"routerLink="/evaluation" >noter</ion-button>
-          </ion-card-content>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
-  <ion-card>
-    <ion-grid style="background-color: rebeccapurple;">
-      <ion-row>
-        <ion-col size="4">
-          <img src="/assets/image/2.jpg" alt="Image" style="width: 100%; height: 100%;">
-        </ion-col>
-        <ion-col size="8">
-          <ion-card-header>
-           
-            <ion-card-title>R_KUNAFONI</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-button style="width: 80PX;" id="popover-button1" routerLink="/evaluation">noter</ion-button>
-          </ion-card-content>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
-  <ion-card>
-    <ion-grid style="background-color: rebeccapurple;">
-      <ion-row>
-        <ion-col size="4">
-          <img src="/assets/image/2.jpg" alt="Image" style="width: 100%; height: 100%;">
-        </ion-col>
-        <ion-col size="8">
-          <ion-card-header>
-            <!-- <ion-card-subtitle>Texte sous-titre</ion-card-subtitle> -->
-            <ion-card-title>NIKISSI</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-button style="width: 80PX;" id="popover-button1" routerLink="/evaluation">noter</ion-button>
-          </ion-card-content>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
-  <ion-card>
-    <ion-grid style="background-color: rebeccapurple;">
-      <ion-row>
-        <ion-col size="4">
-          <img src="/assets/image/2.jpg" alt="Image" style="width: 100%; height: 100%;">
-        </ion-col>
-        <ion-col size="8">
-          <ion-card-header>
-            <!-- <ion-card-subtitle>Texte sous-titre</ion-card-subtitle> -->
-            <ion-card-title>SoSecuriGaz</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-button style="width: 80PX;" id="popover-button1" routerLink="/evaluation">noter</ion-button>
-          </ion-card-content>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
 </ion-content>
