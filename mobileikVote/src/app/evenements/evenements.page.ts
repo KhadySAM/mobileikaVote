@@ -8,7 +8,7 @@ import { EvenementsService } from '../Services/evenements.service';
   styleUrls: ['./evenements.page.scss'],
 })
 export class EvenementsPage implements OnInit {
-  url:String = "/detaiEvents" 
+ // url:String = "/detaiEvents" 
   lesEvents: any;
   constructor(
     private serviceEvensts: EvenementsService,

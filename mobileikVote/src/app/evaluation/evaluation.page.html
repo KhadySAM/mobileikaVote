@@ -15,18 +15,25 @@
 
   <h6 class="text-center">Merci de noter tous les criteres</h6>
 
+  <form #noteForm="ngForm">
 
 
-  <div class="critere"  *ngFor="let criteres  of allCriteres">
-    <ion-label > <h2>{{criteres.titre}}</h2> </ion-label>
-    <ion-label>{{criteres.contenu}}</ion-label>
-    <ion-label>Note: {{criteres.note}}</ion-label>
-    <ion-range [min]="0" [max]="10"  [(ngModel)]="criteres.note"></ion-range>
-    <!-- <ion-range [min]="0" [max]="10" (ionChange)="onIonChange($event)"></ion-range> -->
-   
-  </div>
+    <ion-list>
+      <ion-item *ngFor="let critere of criteresAff">
+        <div class="container">
+          <div class="row">
+            <ion-label>{{critere.titre}} : <strong> {{critere.note}}</strong> </ion-label>
+          <ion-label>{{critere.contenu}}</ion-label>
+          </div>
 
-  <div>
-    <ion-button style="width: 80PX;"  >Envoyer</ion-button>
-  </div>
+          <div class="row">
+            <ion-range min="0" max="10" [(ngModel)]="critere.note" name="{{critere.id}}"></ion-range>
+          </div>
+        </div>
+      
+      </ion-item>
+    </ion-list>
+    <ion-button (click)="submitNote()">Envoyer les notes</ion-button>
+  </form>
+
 </ion-content>
