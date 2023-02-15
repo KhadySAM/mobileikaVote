@@ -10,8 +10,8 @@ export class ProjetsServiceService {
   constructor(public http: HttpClient) { }
 
    // Recuperation des projets par id evements
-   getProjetsByIdEvents(idevent:any):Observable<any>{
-    return this.http.get(`http://localhost:8080/api/auth/projetbyetevents/${idevent}`)
+   getProjetsByIdEvents(idEvents:any):Observable<any>{
+    return this.http.get(`http://localhost:8080/api/auth/projetbyevents/${idEvents}`)
    }
 
    // Recuperation des projet par id

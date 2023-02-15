@@ -26,8 +26,8 @@ export class ProjetsPage implements OnInit {
 
   ngOnInit() {
 
-    this.id = this.route.snapshot.params['id'] 
-    this.projetService.getProjetsByIdEvents(this.id).subscribe(data =>{
+    this.idEvents = this.route.snapshot.params['idEvents'] 
+    this.projetService.getProjetsByIdEvents(this.idEvents).subscribe(data =>{
       this.allProjets = data
       console.log(this.allProjets);
     });

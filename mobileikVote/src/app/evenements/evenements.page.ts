@@ -29,9 +29,9 @@ export class EvenementsPage implements OnInit {
     return this.router.navigate(['/detailevents', id])
   }
 
-  goAllProjetByIdEvents(id:number){
-    console.log(id);
-    return this.router.navigate(['/projets', id])
+  goAllProjetByIdEvents(idEvents:number){
+    console.log(idEvents);
+    return this.router.navigate(['/projets', idEvents])
   }
 
 
