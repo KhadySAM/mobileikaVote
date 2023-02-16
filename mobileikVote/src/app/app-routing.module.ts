@@ -26,7 +26,7 @@ const routes: Routes = [
     loadChildren: () => import('./projets/projets.module').then( m => m.ProjetsPageModule)
   },
   {
-    path: 'evaluation/:id',
+    path: 'evaluation/:id/:idProjet',
     loadChildren: () => import('./evaluation/evaluation.module').then( m => m.EvaluationPageModule)
   },
   {
@@ -34,7 +34,7 @@ const routes: Routes = [
     loadChildren: () => import('./detailevents/detailevents.module').then( m => m.DetaileventsPageModule)
   },
   {
-    path: 'resultats',
+    path: 'resultats/:idEvents',
     loadChildren: () => import('./resultats/resultats.module').then( m => m.ResultatsPageModule)
   },
   {

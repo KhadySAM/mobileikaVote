@@ -8,7 +8,7 @@ import { EvenementsService } from '../Services/evenements.service';
   styleUrls: ['./evenements.page.scss'],
 })
 export class EvenementsPage implements OnInit {
- // url:String = "/detaiEvents" 
+
   lesEvents: any;
   constructor(
     private serviceEvensts: EvenementsService,
@@ -32,6 +32,11 @@ export class EvenementsPage implements OnInit {
   goAllProjetByIdEvents(idEvents:number){
     console.log(idEvents);
     return this.router.navigate(['/projets', idEvents])
+  }
+
+  goAllResultatByIdEvents(idEvents:number){
+    console.log(idEvents);
+    return this.router.navigate(['/resultats', idEvents])
   }
 
 

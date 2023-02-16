@@ -5,7 +5,7 @@
         <ion-back-button defaultHref="evenements"></ion-back-button>
       </ion-buttons>
       <div class="nomApp" style="flex-basis: 80%;">
-        {{libelle}}
+        {{libelleEvent}}
       </div>
     </div>
   </div>
@@ -16,12 +16,12 @@
     <ion-card *ngFor="let projet  of allProjets " >
       <ion-grid>
         <ion-row>
-          <ion-col size="6">
+          <ion-col size="4">
             <img src="{{projet.images}}" sizes="2" class="card-img" alt="image">
           </ion-col>
-          <ion-col size="6">
-           <h3>{{projet.libelle}}</h3>
-            <ion-button (click)="goAllCritereByIdEvents(idEvents)">Noter</ion-button>
+          <ion-col size="8">
+           <h6>{{projet.libelle}}</h6>
+            <ion-button (click)="goAllCritereByIdEvents(idEvents,projet.id)">Noter</ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>

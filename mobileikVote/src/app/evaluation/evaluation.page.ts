@@ -20,16 +20,18 @@ import { TokenStorageService } from '../Services/token-storage.service';
 export class EvaluationPage implements OnInit {
 
   id:any;
-  idpjt:any;
+  idProjet:any
   prjCrt:any
-  libellepj:any
+  libelleProjet:any
 
   criteresAff: any[]=[];
   criteres: any;
+
 //  criteres: Critere[];
 
   constructor(
-    private critereService: CriteresServiceService,private evaluationService:EvaluationServiceService,
+    private critereService: CriteresServiceService,
+    private evaluationService:EvaluationServiceService,
     private route: ActivatedRoute,
     private tokenStorage:TokenStorageService,
     private projetService: ProjetsServiceService,
@@ -40,9 +42,6 @@ export class EvaluationPage implements OnInit {
 
   ngOnInit() {
 
-  
-
-
     // get des criteres
     this.id = this.route.snapshot.params['id'] 
     this.critereService.getCritersByIdEvents(this.id).subscribe(data =>{
@@ -52,12 +51,11 @@ export class EvaluationPage implements OnInit {
 
 
     // nom projet
-    this.id = this.route.snapshot.params['id']
-      this.projetService.getProjetsById(this.id).subscribe(data =>{
-        this.prjCrt = data
-
-        this.libellepj=data.libelle
-        console.log(this.prjCrt)
+    this.idProjet = this.route.snapshot.params['idProjet'] 
+      this.projetService.getProjetsById(this.idProjet).subscribe(data =>{
+        this.prjCrt = data 
+        this.libelleProjet=data.libelle
+        console.log(this.libelleProjet)
  
       });
 
@@ -71,7 +69,9 @@ export class EvaluationPage implements OnInit {
         console.log(this.tokenStorage.getUser())
         this.evaluation.user={
           'id':this.tokenStorage.getUser().id
+          
         }
+        
 
         console.log(this.evaluation)
         this.evaluationService.doEvaluationByJury(this.evaluation).subscribe(data=>{
@@ -80,6 +80,7 @@ export class EvaluationPage implements OnInit {
 
         
       });
+
     }
 
 }

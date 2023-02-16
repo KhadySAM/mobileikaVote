@@ -30,7 +30,7 @@
                       <div class="ion-padding" slot="content">
                         <a (click)="goDetailEvents(evenement.id)" >Voir +</a><br>
                         <a (click)="goAllProjetByIdEvents(evenement.id)" >Evaluer</a><br>
-                        <a routerLink="/resultats">Resultat</a>
+                        <a (click)=" goAllResultatByIdEvents(evenement.id)">Resultat</a>
                       </div>
                     </ion-accordion>
                   </ion-accordion-group>

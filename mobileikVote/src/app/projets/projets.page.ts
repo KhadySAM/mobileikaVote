@@ -14,7 +14,7 @@ export class ProjetsPage implements OnInit {
   idEvents:any;
   allProjets:any
   allEvents:any
-  libelle:any
+  libelleEvent:any
  
 
 
@@ -32,23 +32,21 @@ export class ProjetsPage implements OnInit {
       console.log(this.allProjets);
     });
     
-    this.id = this.route.snapshot.params['id']
       // nom events
-      this.detaileventService.getEventsById(this.id).subscribe(data =>{
+      this.detaileventService.getEventsById(this.idEvents).subscribe(data =>{
         this.allEvents = data
-        this.libelle=data.libelle
-        this.idEvents=data.id
+        this.libelleEvent=data.libelle
         console.log(this.allEvents)
-        console.log(this.id)
+        console.log(this.libelleEvent)
       })
     
 
   }
 
-  goAllCritereByIdEvents(id:number){
+  goAllCritereByIdEvents(id:number, idProjet:number){
     console.log(id);
    // console.log("gggggggggggggggggggggggggggggggggggggggg");
-    return this.router.navigate(['/evaluation', id])
+    return this.router.navigate(['/evaluation', id  ,idProjet])
   }
 
 }
