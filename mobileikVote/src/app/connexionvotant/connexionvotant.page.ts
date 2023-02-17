@@ -1,13 +1,14 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import jsQR from 'jsqr';
+import { ConnexionVotantService } from '../Services/connexion-votant.service';
 
 @Component({
   selector: 'app-connexionvotant',
   templateUrl: './connexionvotant.page.html',
   styleUrls: ['./connexionvotant.page.scss'],
 })
-export class ConnexionvotantPage  {
+export class ConnexionvotantPage implements OnInit {
 
   scanActive = false;
   scanResult = null;
@@ -19,12 +20,23 @@ export class ConnexionvotantPage  {
   videoElement: any;
   canvasElement: any;
   canvasContext: any;
+  loading!: HTMLIonLoadingElement;
 
-    loading!: HTMLIonLoadingElement ;
+  allCodeVotant: any;
+  eventCorrespondant: any;
+  codeWithAllInfos: any;
 
   constructor(
+    private connexionVotantService: ConnexionVotantService,
     private loadingCtrl: LoadingController,
   ) {}
+  ngOnInit(): void {
+    this.connexionVotantService.getAllCodeVotant().subscribe(data =>{
+      this.allCodeVotant = data
+      console.log(this.allCodeVotant)
+    })
+    // throw new Error('Method not implemented.');
+  }
 ngAfterViewInit() {
   this.videoElement = this.video.nativeElement;
   this.canvasElement = this.canvas.nativeElement;
@@ -60,6 +72,14 @@ ngAfterViewInit() {
           this.canvasElement.height = this.videoElement.videoHeight;
           this.canvasElement.width = this.videoElement.videoWidth;
 
+          //scann
+          this.canvasContext.drawImage(
+            this.videoElement,
+            0,
+            0,
+            this.canvasElement.width,
+            this.canvasElement.height
+          );
           const imageData = this.canvasContext.getImageData(
             0,
             0,
@@ -71,6 +91,19 @@ ngAfterViewInit() {
           });
 
             if(code){
+
+              this.scanActive = false;
+             
+              //  this.scanResult = code.data
+              this.connexionVotantService.getEventsByCodeVotant(code.data).subscribe(data =>{
+                this.codeWithAllInfos =data
+                this.eventCorrespondant = data.evenements
+
+                console.log(this.codeWithAllInfos);
+                console.log(this.eventCorrespondant);
+              })
+              
+              console.log(code)
 
                 console.log("ok");
 
