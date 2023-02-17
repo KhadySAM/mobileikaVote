@@ -1,0 +1,32 @@
+.containeurLogo{
+    text-align: center;
+    margin-top: 30%;
+
+}
+
+.containeurLog{
+    text-align: center;
+    margin-top: 20%;
+
+}
+
+.Connexion button{
+    text-align: center;
+    margin-top: 15%;
+    background-color: #0C85F8;
+    padding: 10px ;
+    font-size: 15px;
+    color: white;
+    border-radius: 7px;
+    margin-left: 30%;
+
+}
+
+ion-content {
+    width: calc(100% + 20px);
+    --padding-end: 20px !important;
+  }
+  
+  ion-content::part(scroll) {
+    margin-right: -20px;
+  }

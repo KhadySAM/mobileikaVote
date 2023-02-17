@@ -1,9 +1,30 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
-    <ion-title>connexionvotant</ion-title>
+    <ion-title>Connexion</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
 
+  <div class="containeurLogo">
+    <h3>Bienvenu sur ikaVote !</h3><br>
+      <!-- <img src="../../app/../assets/image/vote.jpg"  srcset="" width="45%"> -->
+    <!-- <img src="../../app/../assets/image/Qrcode.png"  srcset="" width="50%"> -->
+    <!-- <h5>Bienvenu sur ikaVote !</h5> -->
+  </div>
+
+  <div class="containeurLog">
+    <!-- <img src="../../app/../assets/image/Qrcode.png"  srcset="" width="50%"> -->
+    <video #video [hidden]="!scanActive" width="100%">
+      <canvas #canvas hidden></canvas>
+    </video>
+  </div>
+
+  <div class="Connexion">
+    <button (click)="startScan()" >Scan QR Code</button>
+    <video #video [hidden]="!scanActive" width="100%">
+      <canvas #canvas hidden></canvas>
+    </video>
+  </div>
+          
 </ion-content>
