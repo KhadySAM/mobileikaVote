@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import jsQR from 'jsqr';
 import { ConnexionVotantService } from '../Services/connexion-votant.service';
@@ -23,12 +24,13 @@ export class ConnexionvotantPage implements OnInit {
   loading!: HTMLIonLoadingElement;
 
   allCodeVotant: any;
-  eventCorrespondant: any;
+  // eventCorrespondant: any;
   codeWithAllInfos: any;
 
   constructor(
     private connexionVotantService: ConnexionVotantService,
     private loadingCtrl: LoadingController,
+    private router: Router,
   ) {}
   ngOnInit(): void {
     this.connexionVotantService.getAllCodeVotant().subscribe(data =>{
@@ -97,10 +99,18 @@ ngAfterViewInit() {
               //  this.scanResult = code.data
               this.connexionVotantService.getEventsByCodeVotant(code.data).subscribe(data =>{
                 this.codeWithAllInfos =data
-                this.eventCorrespondant = data.evenements
+               
+                console.log(this.codeWithAllInfos)
 
-                console.log(this.codeWithAllInfos);
-                console.log(this.eventCorrespondant);
+                 // Stocker les informations dans le localStorage
+                 localStorage.setItem('codeWithAllInfos', JSON.stringify(this.codeWithAllInfos));
+    
+
+
+                //  Redirection vers une nouvelle page
+                 
+                 this.router.navigate(['/event-votant', code.data])
+                
               })
               
               console.log(code)

@@ -15,6 +15,10 @@ export class EvaluationServiceService {
     return this.http.post(`http://localhost:8080/api/auth/noterprojetjury`, evaluation)
    }
 
+   doEvaluationByVotant(evaluations: EvaluationModel):Observable<any>{
+    return this.http.post(`http://localhost:8080/api/auth/noterprojet`, evaluations)
+   }
+
 
 
 }

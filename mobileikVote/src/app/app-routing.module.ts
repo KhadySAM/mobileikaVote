@@ -41,6 +41,30 @@ const routes: Routes = [
     path: 'loginjury',
     loadChildren: () => import('./loginjury/loginjury.module').then( m => m.LoginjuryPageModule)
   },
+  {
+    path: 'event-votant/:codeVotant',
+    loadChildren: () => import('./event-votant/event-votant.module').then( m => m.EventVotantPageModule)
+  },
+  {
+    path: 'detail-events-votant/:idEvents',
+    loadChildren: () => import('./detail-events-votant/detail-events-votant.module').then( m => m.DetailEventsVotantPageModule)
+  },
+  {
+    path: 'projet-votant/:idEvents',
+    loadChildren: () => import('./projet-votant/projet-votant.module').then( m => m.ProjetVotantPageModule)
+  },
+  {
+    path: 'resultat-votant/:idEvents',
+    loadChildren: () => import('./resultat-votant/resultat-votant.module').then( m => m.ResultatVotantPageModule)
+  },
+  {
+    path: 'evaluation-votant/:id/:idProjet',
+    loadChildren: () => import('./evaluation-votant/evaluation-votant.module').then( m => m.EvaluationVotantPageModule)
+  },
+  // {
+  //   path: 'projets-votants',
+  //   loadChildren: () => import('./projets-votants/projets-votants.module').then( m => m.ProjetsVotantsPageModule)
+  // },
  
 ];
 

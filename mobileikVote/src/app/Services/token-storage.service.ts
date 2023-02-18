@@ -33,6 +33,12 @@ export class TokenStorageService {
       return JSON.parse(user);
     }
 
+    // public getCodeVotant(): any {
+    //   const code = window.sessionStorage.getItem(CDOD_KEY);
+    //   if (code) {
+    //     return JSON.parse(code);
+    //   }
+
     return {};
   }
 }

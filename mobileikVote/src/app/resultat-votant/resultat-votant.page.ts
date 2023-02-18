@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import Chart from 'chart.js/auto';
 import { ResultatModel } from '../Models/resultat-model';
 import { DetailEventServiceService } from '../Services/detail-event-service.service';
 import { ProjetsServiceService } from '../Services/projets-service.service';
 
-
 @Component({
-  selector: 'app-resultats',
-  templateUrl: './resultats.page.html',
-  styleUrls: ['./resultats.page.scss'],
+  selector: 'app-resultat-votant',
+  templateUrl: './resultat-votant.page.html',
+  styleUrls: ['./resultat-votant.page.scss'],
 })
-export class ResultatsPage implements OnInit {
+export class ResultatVotantPage implements OnInit {
 
   public Total=0;
   public MaxHeight= 160;
@@ -23,8 +21,6 @@ export class ResultatsPage implements OnInit {
   imageEvent: any;
   allProjets: any;
 
- 
-
   constructor(
     private projetService: ProjetsServiceService,
     private route: ActivatedRoute,
@@ -32,21 +28,18 @@ export class ResultatsPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    
-      // nom events
-      this.idEvents = this.route.snapshot.params['idEvents']
-      this.detaileventService.getEventsById(this.idEvents).subscribe(data =>{
-        this.allEvents = data
-        this.libelleEvent=data.libelle
-        this.imageEvent = data.images
-        console.log(this.allEvents)
-        console.log(this.libelleEvent)
-      });
 
-      this.MontarGrafico();
+    // nom events
+    this.idEvents = this.route.snapshot.params['idEvents']
+    this.detaileventService.getEventsById(this.idEvents).subscribe(data =>{
+      this.allEvents = data
+      this.libelleEvent=data.libelle
+      this.imageEvent = data.images
+      console.log(this.allEvents)
+      console.log(this.libelleEvent)
+    });
 
-
-
+    this.MontarGrafico();
   }
 
   public List: Array<ResultatModel> = [];
@@ -77,7 +70,6 @@ export class ResultatsPage implements OnInit {
       });
     });
   }
-
 
 
 }

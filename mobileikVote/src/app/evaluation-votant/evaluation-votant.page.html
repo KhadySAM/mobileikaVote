@@ -1,0 +1,39 @@
+<ion-header>
+  <div class="barre-menu">
+    <div class="element-menus">
+      <ion-buttons slot="start" >
+        <ion-back-button defaultHref="projet-votant"></ion-back-button>
+      </ion-buttons>
+      <div class="text-center nomApp" style="flex-basis: 80%;">
+       {{libelleProjet}}
+      </div>
+    </div>
+  </div>
+</ion-header>
+
+<ion-content>
+
+  <h6 class="text-center">Merci de noter tous les criteres</h6>
+
+  <form #noteForm="ngForm">
+
+
+    <ion-list>
+      <ion-item *ngFor="let critere of criteresAff">
+        <div class="container">
+          <div class="row">
+            <ion-label>{{critere.titre}} : <strong> {{critere.note}}</strong> </ion-label>
+          <ion-label>{{critere.contenu}}</ion-label>
+          </div>
+
+          <div class="row">
+            <ion-range min="0" max="10" [(ngModel)]="critere.note" name="{{critere.id}}"></ion-range>
+          </div>
+        </div>
+      
+      </ion-item>
+    </ion-list>
+    <ion-button (click)="submitNote()">Envoyer les notes</ion-button>
+  </form>
+
+</ion-content>

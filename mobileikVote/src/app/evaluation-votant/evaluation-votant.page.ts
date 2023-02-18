@@ -1,23 +1,18 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RangeCustomEvent } from '@ionic/angular';
-import { RangeValue } from '@ionic/core';
 import { EvaluationModel } from '../Models/evaluation-model';
+import { EvaluationVotantModel } from '../Models/evaluation-votant-model';
 import { CriteresServiceService } from '../Services/criteres-service.service';
-import { DetailEventServiceService } from '../Services/detail-event-service.service';
 import { EvaluationServiceService } from '../Services/evaluation-service.service';
 import { ProjetsServiceService } from '../Services/projets-service.service';
-import { UserService } from '../Services/user-service.service';
 import { TokenStorageService } from '../Services/token-storage.service';
 
 @Component({
-  selector: 'app-evaluation',
-  templateUrl: './evaluation.page.html',
-  
-  styleUrls: ['./evaluation.page.scss'],
+  selector: 'app-evaluation-votant',
+  templateUrl: './evaluation-votant.page.html',
+  styleUrls: ['./evaluation-votant.page.scss'],
 })
-export class EvaluationPage implements OnInit {
+export class EvaluationVotantPage implements OnInit {
 
   id:any;
   idProjet:any
@@ -27,24 +22,21 @@ export class EvaluationPage implements OnInit {
   criteresAff: any[]=[];
   criteres: any;
 
-
-
   constructor(
     private critereService: CriteresServiceService,
-    private evaluationService:EvaluationServiceService,
+    private evaluationService: EvaluationServiceService,
     private route: ActivatedRoute,
-    private tokenStorage:TokenStorageService,
-    private projetService: ProjetsServiceService,
+    // private tokenStorage:TokenStorageService,
    
+    private projetService: ProjetsServiceService,
   ) { }
-
-
 
   ngOnInit() {
 
     // get des criteres
     this.id = this.route.snapshot.params['id'] 
     this.critereService.getCritersByIdEvents(this.id).subscribe(data =>{
+      console.log(this.id)
       this.criteresAff = data;
       console.log(this.criteresAff)
     });
@@ -59,34 +51,32 @@ export class EvaluationPage implements OnInit {
  
       });
 
-    }
-    evaluation:EvaluationModel=new EvaluationModel
+  }
+
+  evaluations: EvaluationVotantModel=new EvaluationVotantModel
     submitNote() {
       this.criteresAff.forEach(critere => {
-        this.evaluation.criteres=critere
-        this.evaluation.note=critere.note
-        this.evaluation.projets=this.prjCrt
-        console.log(this.tokenStorage.getUser())
-        this.evaluation.user={
-          'id':this.tokenStorage.getUser().id
-          
-        }
+        this.evaluations.criteres=critere
+        this.evaluations.note=critere.note
+        this.evaluations.projets=this.prjCrt
         
+        // Récupérer les informations depuis le localStorage
+        const codeWithAllInfos = localStorage.getItem('codeWithAllInfos');
+        if (codeWithAllInfos !== null) {
+          const codeWithAllInfosObj = JSON.parse(codeWithAllInfos);
+          console.log(codeWithAllInfosObj);
+        }
 
-        console.log(this.evaluation)
-        this.evaluationService.doEvaluationByJury(this.evaluation).subscribe(data=>{
-          console.log(data)
-        })
+        // this.evaluation.codeWithAllInfosObj
+
+        console.log(this.evaluations)
+        // this.evaluationService.doEvaluationByVotant(this.evaluations).subscribe(data=>{
+        //   console.log(data)
+        // })
+        
 
         
       });
 
     }
-
 }
-
-  
-
-  
-
-

@@ -1,0 +1,83 @@
+.barre-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #0C85F8;
+    color: #fff;
+    padding: 0;
+    z-index: 0;
+    display: flex;
+    justify-content: space-around;
+    height: 75px;
+  }
+  
+  .element-menus{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .nomApp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+
+  }
+
+
+  //le conteneur principal du contenu
+
+  .conteneurDetailChamp{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+
+//   Style de l'image et son conteneur
+.photoChamp{
+    height: 30vh;
+    width: 100%;
+}
+.monChamp{
+    height: 100%;
+    width: 100%;
+}
+
+
+//Styles des details du champs
+
+//conteneur principal des details
+.detailChamp{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    gap: 10px;
+    // margin-left: 5%;
+    // margin-right: 2%;
+  }
+
+  .elementDetailChamp{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%; 
+    font-size: 15px; 
+  }
+
+  .detail, .libelle{
+    display: flex;
+    justify-content: flex-start;
+  }
+ .libelle{
+   font-weight: bold;
+  }

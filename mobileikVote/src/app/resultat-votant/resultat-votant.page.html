@@ -1,0 +1,41 @@
+<ion-header>
+  <div class="barre-menu">
+    <div class="element-menus">
+      <ion-buttons slot="start" >
+        <ion-back-button defaultHref="evenements"></ion-back-button>
+      </ion-buttons>
+      <div class="nomApp" style="flex-basis: 80%;">
+        {{libelleEvent}}
+      </div>
+    </div>
+  </div>
+</ion-header>
+
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-row></ion-row>
+    <div class="headImg" ><img src="../../assets/image/phot1.png" />Les evenements </div>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+
+  <div  class="grafico">
+    
+    <div class="content">
+        <div class="bars" *ngFor="let item of List">
+            <span>{{item.Valeur}}</span>
+            <div class="bar" [style.background-color]="item.couleur" [style.height]='item.taille'></div>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="legends">
+        <span *ngFor="let item of List">{{item.nom}}</span>
+    </div>
+</div>
+
+  <!-- <div class="chart-container">
+    <canvas  id="MyChart" >{{ chart }}</canvas>
+  </div> -->
+
+</ion-content>
