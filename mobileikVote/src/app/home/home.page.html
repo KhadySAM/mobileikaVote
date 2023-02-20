@@ -1,38 +1,27 @@
-<!-- <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
-<ion-content [fullscreen]="true" >
+<ion-content>
   <div class="container">
-    <div class="row">
-      <div class="text-center">
-        <img src="../../assets/image/projets.png" width="50%">
-      </div>
+    <div class="text-center">
+      <img class="imageH" src="../../assets/image/projets.png">
     </div>
     <div class="row">
-      <div class="text-center" style="color: white;">
-        <h2>Bienvenu !</h2>
+      <div class="text-center">
+        <h2>Bienvenu sur ikaVote!</h2>
         <p>Mecri de choisir votre profil</p>
       </div>
     </div>
   </div>
-  <div class="but">
-    <div class="row">
-      <div>
-        <ion-button expand="block" routerLink="/loginjury" >Authentification Jury</ion-button>
-      </div>
-      <div>
-        <ion-button expand="block" routerLink="/connexionvotant">Authentification votant</ion-button>
-      </div>
-      
+  <div class="milieu">
+    <div class="jury text-center">
+      <button routerLink="/loginjury">Authentification jury</button>
+    </div>
+    <div class="votant text-center">
+      <button routerLink="/connexionvotant">Authentification votant</button>
     </div>
   </div>
   
+
+
 </ion-content>
-<ion-footer>
-  <img class="logo" src="../../assets/image/mylogo.png" >
+<ion-footer class="footer">
+  <img class="logo" src="../../assets/image/logo.png" >
 </ion-footer>

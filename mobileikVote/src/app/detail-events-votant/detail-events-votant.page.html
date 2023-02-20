@@ -3,10 +3,10 @@
     <div class="barre-menu">
       <div class="element-menus">
         <ion-buttons slot="start" >
-          <ion-back-button  defaultHref="events-votant" ></ion-back-button>
+          <ion-back-button defaultHref="events-votant/{idEvents}" ></ion-back-button>
           <!-- <ion-back-button defaultHref="event-votant/:{{codeVotant}}"></ion-back-button> -->
         </ion-buttons>
-        <div class="nomApp" style="flex-basis: 80%;">
+        <div class="nomEvents">
           {{libelle}}
         </div>
       </div>
@@ -19,41 +19,36 @@
 
 
 
-    <div class="conteneurDetailChamp">
-      <div class="photoChamp">
-        <img class="monChamp" src="{{images}}" alt="Image du champ">
-        <!-- <div class="temperature" >{{temperatureActuelChamp}} °C</div> -->
-      </div>
+    <div class="conteneurDetailEvents">
+      <div class="photoEvents">
+        <img class="myEvents" src="{{images}}" alt="Image Events">
+         </div>
 
-      <div class="detailChamp">
-        <div class="elementDetailChamp">
+      <div class="detailEvents">
+        <div class="elementDetailEvents">
           <div class="libelle">Date début:</div>
           <div class="detail"> {{dateDebut | date: "dd MMMM yyyy à hh:mm"}}</div>
         </div>
-        <div class="elementDetailChamp">
+        <div class="elementDetailEvents">
           <div class="libelle">Date fin:</div>
           <div class="detail">{{dateFin | date: "dd MMMM yyyy à hh:mm"}}</div>
         </div>
-        <div class="elementDetailChamp">
+        <div class="elementDetailEvents">
           <div class="libelle">Coéfficient votant</div>
           <div class="detail">{{coefficientUser}}</div>
         </div>
-        <div class="elementDetailChamp">
+        <div class="elementDetailEvents">
           <div class="libelle">Coéfficient jury</div>
           <div class="detail">{{coefficientJury}}</div>
         </div>
-        <div class="elementDetailChamp">
+        <div class="elementDetailEvents">
           <div class="libelle">Barème</div>
           <div class="detail">{{bareme}}</div>
         </div>
-        <div class="elementDetailChamp">
+        <div class="elementDetailEvents">
           <div class="libelle">Nombre votant</div>
           <div class="detail" >{{nbrevotant}}</div>
         </div>
-        <!-- <div class="elementDetailChamp">
-          <div class="libelle">Pays</div>
-          <div class="detail">{{pays}}</div>
-        </div> -->
 
       </div>
     </div>

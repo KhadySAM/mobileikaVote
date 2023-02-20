@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    background-color: #0C85F8;
+    background-color: #1746A2;
     color: #fff;
     padding: 0;
     z-index: 0;
@@ -18,20 +18,22 @@
     align-items: center;
     width: 100%;
   }
-  
-  .nomApp{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+ion-back-button{
+  color: white;
+  font-size: small;
+}
+  .nomEvents{
+ 
+   display: flex;
+   justify-content: center;
     font-weight: bold;
     font-size: 20px;
+    flex-basis: 80%;
 
   }
 
 
-  //le conteneur principal du contenu
-
-  .conteneurDetailChamp{
+  .conteneurDetailEvents{
     height: 100%;
     width: 100%;
     display: flex;
@@ -41,31 +43,30 @@
 
 
 //   Style de l'image et son conteneur
-.photoChamp{
+.photoEvents{
     height: 30vh;
     width: 100%;
 }
-.monChamp{
+.myEvents{
     height: 100%;
     width: 100%;
 }
 
 
-//Styles des details du champs
+//Styles des details Events
 
 //conteneur principal des details
-.detailChamp{
+.detailEvents{
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     width: 100%;
     height: 100%;
     gap: 10px;
-    // margin-left: 5%;
-    // margin-right: 2%;
+    
   }
 
-  .elementDetailChamp{
+  .elementDetailEvents{
     display: flex;
     justify-content: space-between;
     align-items: flex-start;

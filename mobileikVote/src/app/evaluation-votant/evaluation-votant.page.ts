@@ -21,6 +21,7 @@ export class EvaluationVotantPage implements OnInit {
 
   criteresAff: any[]=[];
   criteres: any;
+  mycodeVotant:any
 
   constructor(
     private critereService: CriteresServiceService,
@@ -53,26 +54,32 @@ export class EvaluationVotantPage implements OnInit {
 
   }
 
-  evaluations: EvaluationVotantModel=new EvaluationVotantModel
+  evaluationVotant: EvaluationVotantModel=new EvaluationVotantModel
     submitNote() {
+
+      let codeVotant: null = null;
+    
       this.criteresAff.forEach(critere => {
-        this.evaluations.criteres=critere
-        this.evaluations.note=critere.note
-        this.evaluations.projets=this.prjCrt
+        this.evaluationVotant.criteres=critere
+        this.evaluationVotant.note=critere.note
+        this.evaluationVotant.projets=this.prjCrt
         
-        // Récupérer les informations depuis le localStorage
+        //Récupérer les informations depuis le localStorage
+
         const codeWithAllInfos = localStorage.getItem('codeWithAllInfos');
         if (codeWithAllInfos !== null) {
           const codeWithAllInfosObj = JSON.parse(codeWithAllInfos);
-          console.log(codeWithAllInfosObj);
+          codeVotant = codeWithAllInfosObj;
+          console.log(codeVotant);
         }
 
-        // this.evaluation.codeWithAllInfosObj
+        this.evaluationVotant.codevotant = codeVotant
 
-        console.log(this.evaluations)
-        // this.evaluationService.doEvaluationByVotant(this.evaluations).subscribe(data=>{
-        //   console.log(data)
-        // })
+
+        console.log(this.evaluationVotant)
+        this.evaluationService.doEvaluationByVotant(this.evaluationVotant).subscribe(data=>{
+          console.log(data)
+        })
         
 
         
