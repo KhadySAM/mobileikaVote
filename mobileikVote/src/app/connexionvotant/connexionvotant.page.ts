@@ -106,13 +106,12 @@ ngAfterViewInit() {
                  localStorage.setItem('codeWithAllInfos', JSON.stringify(this.codeWithAllInfos));
     
 
-
                 //  Redirection vers une nouvelle page
                  
                  this.router.navigate(['/event-votant', code.data])
-                
+                 
               })
-              
+                
               console.log(code)
 
                 console.log("ok");
