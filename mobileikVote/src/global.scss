@@ -25,11 +25,24 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-ion-content {
-    width: calc(100% + 0px);
-    --padding-end: 0px !important;
-  }
+// ion-content {
+//     width: calc(100% + 0px);
+//     --padding-end: 0px !important;
+//   }
   
-  ion-content::part(scroll) {
-    margin-right: 0px;
-  }
+//   ion-content::part(scroll) {
+//     margin-right: 0px;
+//   }
+
+
+
+
+  // ion-content {
+  //   width: calc(100% + 20px);
+  //   --padding-end: 20px !important;
+  
+  // }
+  
+  // ion-content::part(scroll) {
+  //   margin-right: -20px;
+  // }

@@ -61,7 +61,7 @@ export class ResultatsPage implements OnInit {
         console.log(this.allProjets)
         return {
           Valeur: element.moyTotal,
-          couleur: '#EC972D',
+          couleur: '#1746A0',
           taille: '',
           nom: element.libelle
         }

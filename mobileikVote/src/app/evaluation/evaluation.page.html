@@ -1,19 +1,43 @@
-<ion-header>
-  <div class="barre-menu">
-    <div class="element-menus">
-      <ion-buttons slot="start" >
-        <ion-back-button defaultHref="projet"></ion-back-button>
-      </ion-buttons>
-      <div class="text-center nomApp" style="flex-basis: 80%;">
-       {{libelleProjet}}
-      </div>
+<ion-header [translucent]="true" >
+  <ion-toolbar>
+    <ion-back-button style="color: #FF731D;" class="logo" defaultHref="evenements"></ion-back-button>
+    <div class="text-center" style="margin-left: 15%;">
+      
+      <ion-text style="color: #FF731D;" >{{libelleProjet}}</ion-text>
     </div>
-  </div>
+    
+    <ion-buttons slot="primary">
+      <ion-button id="popover-button">
+        <div>
+          <ion-icon style="color: #FF731D;" name="person"></ion-icon>
+        </div>
+      </ion-button>
+
+      <ion-popover trigger="popover-button" [dismissOnSelect]="true" class="popUps">
+        <ng-template class="popUp">
+          <ion-content>
+            <ion-list>
+              <ion-item [button]="true" [detail]="false" routerLink="/tabs/profileleve">
+                <ion-icon style="margin-right: 10px;" name="person"></ion-icon>
+                Profil
+              </ion-item>
+              <ion-item class="td">
+                <ion-icon style="margin-right: 10px;" name="power"></ion-icon>
+                Déconnexion
+              </ion-item>
+            </ion-list>
+          </ion-content>
+        </ng-template>
+      </ion-popover>
+
+    </ion-buttons>
+
+  </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content >
 
-  <h6 class="text-center">Merci de noter tous les criteres</h6>
+  <h6 class="text-center" style="margin-top: 15%;">Merci de noter tous les criteres</h6>
 
   <form #noteForm="ngForm">
 
@@ -27,13 +51,13 @@
           </div>
 
           <div class="row">
-            <ion-range min="0" max="10" [(ngModel)]="critere.note" name="{{critere.id}}"></ion-range>
+            <ion-range class="rg" min="0" max="10" [(ngModel)]="critere.note" name="{{critere.id}}"></ion-range>
           </div>
         </div>
       
       </ion-item>
     </ion-list>
-    <ion-button (click)="submitNote()">Envoyer les notes</ion-button>
+    <ion-button class="lesBut" (click)="submitNote()">Envoyer les notes</ion-button>
   </form>
 
 </ion-content>

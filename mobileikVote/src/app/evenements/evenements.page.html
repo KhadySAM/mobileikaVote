@@ -1,13 +1,108 @@
-<ion-header>
+<ion-header [translucent]="true" >
   <ion-toolbar>
-    <ion-row></ion-row>
-    <div class="headImg" ><img src="../../assets/image/phot1.png" />Les evenements</div>
+    <img class="logo" src="../../assets/image/ikaLogo.png" />
+    <div class="text-center" style="margin-left: 15%;">
+      <ion-text style="color: #FF731D;" >Evenement</ion-text>
+    </div>
+    
+    <ion-buttons slot="primary">
+      <ion-button id="popover-button">
+        <div>
+          <ion-icon style="color: #FF731D;" name="person"></ion-icon>
+        </div>
+      </ion-button>
+
+      <ion-popover trigger="popover-button" [dismissOnSelect]="true" class="popUps">
+        <ng-template class="popUp">
+          <ion-content>
+            <ion-list>
+              <ion-item [button]="true" [detail]="false" routerLink="/tabs/profileleve">
+                <ion-icon style="margin-right: 10px;" name="person"></ion-icon>
+                Profil
+              </ion-item>
+              <ion-item class="td">
+                <ion-icon style="margin-right: 10px;" name="power"></ion-icon>
+                Déconnexion
+              </ion-item>
+            </ion-list>
+          </ion-content>
+        </ng-template>
+      </ion-popover>
+
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!-- <ion-row class="headImg"><img src="../../assets/image/phot1.png" /></ion-row> -->
-  <ion-grid class="grid">
+
+
+  <ion-card class="lescard" *ngFor="let evenement  of lesEvents">
+    <!-- <ion-card> -->
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">{{evenement.libelle}}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content class="ion-text-center">
+        <img class="imgEvent" src="{{evenement.images}}" alt="Image">
+      </ion-card-content>
+
+      <ion-row class="ion-justify-content-center ion-padding">
+        <ion-col size="4">
+          <ion-button class="lesBut" expand="block"  (click)="goDetailEvents(evenement.id)">Voir +</ion-button>
+        </ion-col>
+        <ion-col size="4">
+          <ion-button class="lesBut" expand="block" (click)="goAllProjetByIdEvents(evenement.id)">Evaluer</ion-button>
+        </ion-col>
+        <ion-col size="4">
+          <ion-button class="lesBut" expand="block" (click)=" goAllResultatByIdEvents(evenement.id)">Resultat</ion-button>
+        </ion-col>
+      </ion-row>
+    <!-- </ion-card> -->
+    <!-- <ion-card-header>
+      <ion-card-subtitle>{{evenement.libelle}}</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-img class="imgEvent" src="{{evenement.images}}"></ion-img>
+    </ion-card-content> -->
+  </ion-card>
+
+  <!-- <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-md="8" size-lg="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">Titre centré</ion-card-title>
+          </ion-card-header>
+  
+          <ion-card-content class="ion-text-center">
+            <img src="chemin/vers/image.jpg" alt="Image">
+          </ion-card-content>
+  
+          <ion-row class="ion-justify-content-center ion-padding">
+            <ion-col size="4">
+              <ion-button expand="block">Bouton 1</ion-button>
+            </ion-col>
+            <ion-col size="4">
+              <ion-button expand="block">Bouton 2</ion-button>
+            </ion-col>
+            <ion-col size="4">
+              <ion-button expand="block">Bouton 3</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+  
+  
+  
+</ion-content>
+
+  
+
+  <!-- <ion-grid class="grid">
     <ion-row>
 
       <ion-col size-xs="12">
@@ -39,6 +134,6 @@
             </ion-list>
       </ion-col>
     </ion-row>
-  </ion-grid>
-</ion-content>
+  </ion-grid> -->
+
 

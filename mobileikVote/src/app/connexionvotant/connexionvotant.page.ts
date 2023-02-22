@@ -33,11 +33,7 @@ export class ConnexionvotantPage implements OnInit {
     private router: Router,
   ) {}
   ngOnInit(): void {
-    this.connexionVotantService.getAllCodeVotant().subscribe(data =>{
-      this.allCodeVotant = data
-      console.log(this.allCodeVotant)
-    })
-    // throw new Error('Method not implemented.');
+
   }
 ngAfterViewInit() {
   this.videoElement = this.video.nativeElement;
@@ -100,7 +96,7 @@ ngAfterViewInit() {
               this.connexionVotantService.getEventsByCodeVotant(code.data).subscribe(data =>{
                 this.codeWithAllInfos =data
                
-                console.log(this.codeWithAllInfos)
+               // console.log(this.codeWithAllInfos)
 
                  // Stocker les informations dans le localStorage
                  localStorage.setItem('codeWithAllInfos', JSON.stringify(this.codeWithAllInfos));
