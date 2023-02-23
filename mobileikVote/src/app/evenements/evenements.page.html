@@ -1,4 +1,4 @@
-<ion-header [translucent]="true" >
+<ion-header class="head" [translucent]="true" >
   <ion-toolbar>
     <img class="logo" src="../../assets/image/ikaLogo.png" />
     <div class="text-center" style="margin-left: 15%;">
@@ -37,7 +37,9 @@
 <ion-content>
 
 
+  <!-- <ion-text *ngIf="lesEvents == null">Auccun evenement en cours !</ion-text> -->
   <ion-card class="lescard" *ngFor="let evenement  of lesEvents">
+    
     <!-- <ion-card> -->
       <ion-card-header>
         <ion-card-title class="ion-text-center">{{evenement.libelle}}</ion-card-title>
