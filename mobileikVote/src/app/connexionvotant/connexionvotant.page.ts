@@ -94,9 +94,8 @@ ngAfterViewInit() {
              
               //  this.scanResult = code.data
               this.connexionVotantService.getEventsByCodeVotant(code.data).subscribe(data =>{
+
                 this.codeWithAllInfos =data
-               
-               // console.log(this.codeWithAllInfos)
 
                  // Stocker les informations dans le localStorage
                  localStorage.setItem('codeWithAllInfos', JSON.stringify(this.codeWithAllInfos));

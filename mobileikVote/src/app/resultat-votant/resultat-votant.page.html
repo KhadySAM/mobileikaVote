@@ -1,28 +1,24 @@
-<ion-header>
-  <div class="barre-menu">
-    <div class="element-menus">
-      <ion-buttons slot="start" >
-        <ion-back-button defaultHref="evenements"></ion-back-button>
-      </ion-buttons>
-      <div class="nomApp" style="flex-basis: 80%;">
-        {{libelleEvent}}
-      </div>
-    </div>
-  </div>
+<ion-header [translucent]="true" >
+  <ion-toolbar>
+    <ion-back-button style="color: #FF731D;" class="logo" defaultHref="evenements"></ion-back-button>
+    <ion-buttons slot="primary">
+      
+        <div>
+          <img  class="logo" src="../../assets/image/ikaLogo.png">
+        </div>
+
+    </ion-buttons>
+
+  </ion-toolbar>
 </ion-header>
 
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-row></ion-row>
-    <div class="headImg" ><img src="../../assets/image/phot1.png" />Les evenements </div>
-  </ion-toolbar>
-</ion-header> -->
-
 <ion-content>
+  <h3 class="text-center">{{libelleEvent}}</h3>
 
   <div  class="grafico">
     
     <div class="content">
+      
         <div class="bars" *ngFor="let item of List">
             <span>{{item.Valeur}}</span>
             <div class="bar" [style.background-color]="item.couleur" [style.height]='item.taille'></div>

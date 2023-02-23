@@ -1,19 +1,21 @@
-<ion-header>
-
-    <div class="barre-menu">
-      <div class="element-menus">
-        <ion-buttons slot="start" >
-          <ion-back-button defaultHref="events-votant/{idEvents}" ></ion-back-button>
-          <!-- <ion-back-button defaultHref="event-votant/:{{codeVotant}}"></ion-back-button> -->
-        </ion-buttons>
-        <div class="nomEvents">
-          {{libelle}}
+<ion-header [translucent]="true" >
+  <ion-toolbar>
+    <ion-back-button style="color: #FF731D;" class="logo" defaultHref="evenements"></ion-back-button>
+    <!-- <h6>ttttt</h6> -->
+    <ion-buttons slot="primary">
+      
+        <div>
+          <img  class="logo1" src="../../assets/image/ikaLogo.png">
         </div>
-      </div>
-  
-    </div>
+     
+      
 
+    </ion-buttons>
+
+  </ion-toolbar>
 </ion-header>
+
+
 
   <ion-content>
 
@@ -21,10 +23,14 @@
 
     <div class="conteneurDetailEvents">
       <div class="photoEvents">
-        <img class="myEvents" src="{{images}}" alt="Image Events">
+        <img class="photoEvents" src="{{images}}" alt="Image Events">
       </div>
 
       <div class="detailEvents">
+        <div class="elementDetailEvents">
+          <div class="libelle">Nom event</div>
+          <div class="detail"> {{libelle}}</div>
+        </div>
         <div class="elementDetailEvents">
           <div class="libelle">Date début:</div>
           <div class="detail"> {{dateDebut | date: "dd MMMM yyyy à hh:mm"}}</div>

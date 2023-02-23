@@ -40,7 +40,6 @@
   <!-- <ion-text *ngIf="lesEvents == null">Auccun evenement en cours !</ion-text> -->
   <ion-card class="lescard" *ngFor="let evenement  of lesEvents">
     
-    <!-- <ion-card> -->
       <ion-card-header>
         <ion-card-title class="ion-text-center">{{evenement.libelle}}</ion-card-title>
       </ion-card-header>
@@ -60,45 +59,8 @@
           <ion-button class="lesBut" expand="block" (click)=" goAllResultatByIdEvents(evenement.id)">Resultat</ion-button>
         </ion-col>
       </ion-row>
-    <!-- </ion-card> -->
-    <!-- <ion-card-header>
-      <ion-card-subtitle>{{evenement.libelle}}</ion-card-subtitle>
-    </ion-card-header>
-  
-    <ion-card-content>
-      <ion-img class="imgEvent" src="{{evenement.images}}"></ion-img>
-    </ion-card-content> -->
   </ion-card>
 
-  <!-- <ion-grid>
-    <ion-row class="ion-justify-content-center">
-      <ion-col size-md="8" size-lg="6">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title class="ion-text-center">Titre centré</ion-card-title>
-          </ion-card-header>
-  
-          <ion-card-content class="ion-text-center">
-            <img src="chemin/vers/image.jpg" alt="Image">
-          </ion-card-content>
-  
-          <ion-row class="ion-justify-content-center ion-padding">
-            <ion-col size="4">
-              <ion-button expand="block">Bouton 1</ion-button>
-            </ion-col>
-            <ion-col size="4">
-              <ion-button expand="block">Bouton 2</ion-button>
-            </ion-col>
-            <ion-col size="4">
-              <ion-button expand="block">Bouton 3</ion-button>
-            </ion-col>
-          </ion-row>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid> -->
-  
-  
   
 </ion-content>
 

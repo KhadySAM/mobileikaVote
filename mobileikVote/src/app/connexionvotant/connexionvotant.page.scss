@@ -28,10 +28,10 @@ img{
 }
 
 ion-content {
-    width: calc(100% + 20px);
+    width: calc(100% + 10px);
     --padding-end: 20px !important;
   }
   
   ion-content::part(scroll) {
-    margin-right: -20px;
+    margin-right: -10px;
   }

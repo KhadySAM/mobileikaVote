@@ -46,7 +46,6 @@ export class DetailEventsVotantPage implements OnInit {
 
 }
 
-
 goEventsById(codeVotant:number){
   console.log(codeVotant);
   return this.router.navigate(['/event-votant', codeVotant])

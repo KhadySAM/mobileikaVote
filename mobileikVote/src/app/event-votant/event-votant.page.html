@@ -1,14 +1,48 @@
-<ion-header>
+<ion-header [translucent]="true" >
   <ion-toolbar>
-    <ion-row></ion-row>
-    <!-- <img  class="headImg" src="../../assets/image/ikaLogo.png" /> -->
-  
-    <!-- <ion-title>eventVotant</ion-title> -->
+    <ion-back-button style="color: #FF731D;" class="logo" defaultHref="connexionvotant"></ion-back-button>
+    <ion-buttons slot="primary">
+      
+        <div>
+          <img  class="logo" src="../../assets/image/ikaLogo.png">
+        </div>
+     
+      
+
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
-  <ion-grid class="grid">
+
+  <h6>Evenement en cours</h6>
+
+  <ion-card class="lescard">
+    
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">{{nomEvent}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content class="ion-text-center">
+      <img class="imgEvent" src="{{logoEvent}}" alt="Image">
+    </ion-card-content>
+
+    <ion-row class="ion-justify-content-center ion-padding">
+      <ion-col size="4">
+        <ion-button class="lesBut" expand="block"  (click)="goDetailEventsVotant(idEvents)">Voir +</ion-button>
+      </ion-col>
+      <ion-col size="4">
+        <ion-button class="lesBut" expand="block" (click)="goAllProjetByIdEventsVotant(idEvents)">Evaluer</ion-button>
+      </ion-col>
+      <ion-col size="4">
+        <ion-button class="lesBut" expand="block" (click)=" goAllResultatByIdEventsVotant(idEvents)">Resultat</ion-button>
+      </ion-col>
+    </ion-row>
+</ion-card>
+
+  <!-- <ion-grid class="grid">
     <ion-row>
 
       <ion-col size-xs="12">
@@ -40,5 +74,5 @@
             </ion-list>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid> -->
 </ion-content>
