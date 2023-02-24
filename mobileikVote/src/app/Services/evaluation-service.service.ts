@@ -17,7 +17,7 @@ export class EvaluationServiceService {
    }
 
    doEvaluationByVotant(evaluationVotant: EvaluationVotantPageModule):Observable<any>{
-    return this.http.post(`http://localhost:8080/api/auth/noterprojet`, evaluationVotant)
+    return this.http.post(`http://localhost:8080/api/auth/noterprojetvotant`, evaluationVotant)
    }
 
 

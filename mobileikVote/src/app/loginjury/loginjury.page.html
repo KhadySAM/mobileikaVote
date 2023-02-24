@@ -14,7 +14,7 @@
       <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
 
         <div class="alert alert-danger errorMessages" *ngIf="f.submitted && isLoginFailed">
-          Mot de passe ou email incorrect 
+          Mot de passe incorrect 
         </div>
 
 
