@@ -18,4 +18,9 @@ export class ProjetsServiceService {
    getProjetsById(idprojects:any):Observable<any>{
     return this.http.get(`http://localhost:8080/api/auth/projets/${idprojects}`)
    }
+
+      // Recuperation des resultats par id evements
+  getResultaByIdEvents(idEvents:any):Observable<any>{
+    return this.http.get(`http://localhost:8080/api/auth/getResultatParId/${idEvents}`)
+   }
 }

@@ -46,17 +46,17 @@ export class ResultatVotantPage implements OnInit {
 
   MontarGrafico(){
     this.idEvents = this.route.snapshot.params['idEvents']
-    this.projetService.getProjetsByIdEvents(this.idEvents).subscribe(data =>{
+    this.projetService.getResultaByIdEvents(this.idEvents).subscribe(data =>{
       this.allProjets = data;
     
       this.List = this.allProjets.map((element: any) => {
 
         console.log(this.allProjets)
         return {
-          Valeur: element.moyTotal,
+          Valeur: element.noteFinal,
           couleur: '#1746A0',
           taille: '',
-          nom: element.libelle
+          nom:  element.projets.libelle
         }
       });
       
