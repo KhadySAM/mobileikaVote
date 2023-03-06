@@ -20,6 +20,7 @@ export class ResultatVotantPage implements OnInit {
   libelleEvent: any;
   imageEvent: any;
   allProjets: any;
+  nbreProjets: any;
 
   constructor(
     private projetService: ProjetsServiceService,
@@ -48,6 +49,9 @@ export class ResultatVotantPage implements OnInit {
     this.idEvents = this.route.snapshot.params['idEvents']
     this.projetService.getResultaByIdEvents(this.idEvents).subscribe(data =>{
       this.allProjets = data;
+      this.nbreProjets = data.length
+      
+      console.log(this.nbreProjets)
     
       this.List = this.allProjets.map((element: any) => {
 

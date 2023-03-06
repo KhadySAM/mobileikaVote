@@ -34,9 +34,8 @@ ngOnInit() {
 
 
 onSubmit(): void {
- // alert("HELLOOOOOOOOOO")
   const { usernameOrEmail, password } = this.form;
- // alert(this.form)
+
   console.log(this.form)
   this.authService.login(usernameOrEmail, password).subscribe(
     data => {

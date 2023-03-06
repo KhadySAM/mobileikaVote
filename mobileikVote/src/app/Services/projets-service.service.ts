@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProjetsServiceService {
+  setEvaluation: any;
+ 
 
   constructor(public http: HttpClient) { }
 
@@ -22,5 +24,19 @@ export class ProjetsServiceService {
       // Recuperation des resultats par id evements
   getResultaByIdEvents(idEvents:any):Observable<any>{
     return this.http.get(`http://localhost:8080/api/auth/getResultatParId/${idEvents}`)
+   }
+
+       // Recuperation des resultats par id evements
+  getIdcodeBycode(code:any):Observable<any>{
+    return this.http.get(`http://localhost:8080/api/auth/getEvByCode/${code}`)
+   }
+
+       // Recuperation des resultats par id evements
+  checkEvaluation(idCode:any, idProjet:any):Observable<any>{
+    return this.http.get(`http://localhost:8080/api/auth/check/${idCode}/${idProjet}`)
+   }
+
+   checkEvaluationUser(idUser:any, idProjet:any):Observable<any>{
+    return this.http.get(`http://localhost:8080/api/auth/checkJury/${idUser}/${idProjet}`)
    }
 }

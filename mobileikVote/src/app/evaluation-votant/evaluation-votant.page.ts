@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EvaluationModel } from '../Models/evaluation-model';
 import { EvaluationVotantModel } from '../Models/evaluation-votant-model';
 import { CriteresServiceService } from '../Services/criteres-service.service';
@@ -23,10 +23,13 @@ export class EvaluationVotantPage implements OnInit {
   criteres: any;
   mycodeVotant:any
 
+  idCode: any;
+
   constructor(
     private critereService: CriteresServiceService,
     private evaluationService: EvaluationServiceService,
     private route: ActivatedRoute,
+    private router: Router,
     // private tokenStorage:TokenStorageService,
    
     private projetService: ProjetsServiceService,
@@ -52,28 +55,36 @@ export class EvaluationVotantPage implements OnInit {
  
       });
 
+
+    const codevotantStr = localStorage.getItem('codeWithAllInfos');
+    if (codevotantStr) {
+      this.mycodeVotant = JSON.parse(codevotantStr);
+      
+    }
+   
+    this.projetService.getIdcodeBycode(this.mycodeVotant).subscribe(data =>{
+      this.idCode = data
+
+    })
+
   }
 
   evaluationVotant: EvaluationVotantModel=new EvaluationVotantModel
+  
     submitNote() {
-
-      let codeVotant: null = null;
     
       this.criteresAff.forEach(critere => {
         this.evaluationVotant.criteres=critere
         this.evaluationVotant.note=critere.note
         this.evaluationVotant.projets=this.prjCrt
         
-        //Récupérer les informations depuis le localStorage
+       
 
-        const codeWithAllInfos = localStorage.getItem('codeWithAllInfos');
-        if (codeWithAllInfos !== null) {
-          const codeWithAllInfosObj = JSON.parse(codeWithAllInfos);
-          codeVotant = codeWithAllInfosObj;
-          console.log(codeVotant);
-        }
+    
+    console.log(this.idCode);
 
-        this.evaluationVotant.codevotant = codeVotant
+    this.evaluationVotant.codevotant = this.idCode
+
 
 
         console.log(this.evaluationVotant)
@@ -81,9 +92,18 @@ export class EvaluationVotantPage implements OnInit {
           console.log(data)
         })
         
-
+        setTimeout(()=>{
+         
+          this.router.navigate(['/projet-votant', this.id]);
+         
+        },1000)
+        
+        
+        console.log(this.id)
         
       });
 
     }
+
+    
 }

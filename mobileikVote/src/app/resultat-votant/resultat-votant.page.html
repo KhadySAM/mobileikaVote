@@ -1,6 +1,6 @@
 <ion-header [translucent]="true" >
   <ion-toolbar>
-    <ion-back-button style="color: #FF731D;" class="logo" defaultHref="evenements"></ion-back-button>
+    <ion-back-button style="color: #FF731D;" class="logo" defaultHref="event-votant "></ion-back-button>
     <ion-buttons slot="primary">
       
         <div>
@@ -15,6 +15,7 @@
 <ion-content>
   <h3 class="text-center">{{libelleEvent}}</h3>
 
+  <h6 *ngIf="nbreProjets == 0" > Veuiller attendre que l'admin proclamme les resultat </h6>
   <div  class="grafico">
     
     <div class="content">

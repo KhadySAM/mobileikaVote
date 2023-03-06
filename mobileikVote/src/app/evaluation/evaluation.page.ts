@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RangeCustomEvent } from '@ionic/angular';
 import { RangeValue } from '@ionic/core';
 import { EvaluationModel } from '../Models/evaluation-model';
@@ -26,6 +26,7 @@ export class EvaluationPage implements OnInit {
 
   criteresAff: any[]=[];
   criteres: any;
+  // idCode: any;
 
 
 
@@ -35,6 +36,7 @@ export class EvaluationPage implements OnInit {
     private route: ActivatedRoute,
     private tokenStorage:TokenStorageService,
     private projetService: ProjetsServiceService,
+    private router: Router,
    
   ) { }
 
@@ -62,6 +64,7 @@ export class EvaluationPage implements OnInit {
     }
     evaluation:EvaluationModel=new EvaluationModel
     submitNote() {
+    
       this.criteresAff.forEach(critere => {
         this.evaluation.criteres=critere
         this.evaluation.note=critere.note
@@ -72,16 +75,43 @@ export class EvaluationPage implements OnInit {
           
         }
         
-
         console.log(this.evaluation)
         this.evaluationService.doEvaluationByJury(this.evaluation).subscribe(data=>{
           console.log(data)
-        })
-
+        }) 
+        setTimeout(()=>{
+         
+          this.router.navigate(['/projets', this.id]);
+         
+        },1000)
+        
+        
+        console.log(this.id)
         
       });
 
     }
+    // submitNote() {
+      // this.criteresAff.forEach(critere => {
+      //   this.evaluation.criteres=critere
+      //   this.evaluation.note=critere.note
+      //   this.evaluation.projets=this.prjCrt
+      //   console.log(this.tokenStorage.getUser())
+        // this.evaluation.user={
+        //   'id':this.tokenStorage.getUser().id
+          
+        // }
+        
+
+      //   console.log(this.evaluation)
+      //   this.evaluationService.doEvaluationByJury(this.evaluation).subscribe(data=>{
+      //     console.log(data)
+      //   })
+
+        
+    //   });
+
+    
 
 }
 

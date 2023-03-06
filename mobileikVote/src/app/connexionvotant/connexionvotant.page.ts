@@ -95,15 +95,21 @@ ngAfterViewInit() {
               //  this.scanResult = code.data
               this.connexionVotantService.getEventsByCodeVotant(code.data).subscribe(data =>{
 
-                this.codeWithAllInfos =data
+                this.codeWithAllInfos =code.data
 
                  // Stocker les informations dans le localStorage
+                 
                  localStorage.setItem('codeWithAllInfos', JSON.stringify(this.codeWithAllInfos));
-    
+
+                 
+  
+                 console.log(this.codeWithAllInfos)
 
                 //  Redirection vers une nouvelle page
                  
-                 this.router.navigate(['/event-votant', code.data])
+                 this.router.navigate(['/event-votant', this.codeWithAllInfos])
+
+                //  this.router.navigate(['/event-votant', code.data])
                  
               })
                 
