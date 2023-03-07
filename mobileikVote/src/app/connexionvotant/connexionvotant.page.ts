@@ -24,7 +24,7 @@ export class ConnexionvotantPage implements OnInit {
   loading!: HTMLIonLoadingElement;
 
   allCodeVotant: any;
-  // eventCorrespondant: any;
+ 
   codeWithAllInfos: any;
 
   constructor(

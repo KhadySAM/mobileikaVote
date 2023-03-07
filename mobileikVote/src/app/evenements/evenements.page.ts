@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { EvenementsService } from '../Services/evenements.service';
 import Swal from 'sweetalert2';
+import { TokenStorageService } from '../Services/token-storage.service';
+import { AuthService } from '../Services/login-services.service';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-evenements',
@@ -14,7 +17,10 @@ export class EvenementsPage implements OnInit {
   constructor(
     private serviceEvensts: EvenementsService,
     private resultatsService: EvenementsService,
-    private router: Router
+    private router: Router,
+    private tokenStorage:TokenStorageService,
+    private authService: AuthService,
+    @Inject(PLATFORM_ID) private platformId: object,
     ) { }
 
   ngOnInit() {
@@ -54,7 +60,7 @@ export class EvenementsPage implements OnInit {
       } else {
         console.log(resultats);
         // Naviguer vers la page des résultats
-        this.router.navigate(['dashboard/resultat', idEvents]);
+        this.router.navigate(['/resultats', idEvents]);
       }
     });
   }
@@ -88,6 +94,28 @@ export class EvenementsPage implements OnInit {
     });
   }
   
+  logout(): void {
+    this.authService.logout1().subscribe({
+      next: res => {
+        console.log(res);
+        this.tokenStorage.clean();
+        this.router.navigate(['/loginjury'])
+      },
+      error: err => {
+        console.log(err);
+      }
+    });
 
+    if (isPlatformBrowser(this.platformId)) {
+      const navMain = document.getElementById('navbarCollapse');
+      if (navMain) {
+        navMain.onclick = function onClick() {
+          if (navMain) {
+            navMain.classList.remove('show');
+          }
+        };
+      }
+    }
+  }
 
 }

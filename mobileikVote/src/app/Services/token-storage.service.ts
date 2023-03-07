@@ -13,6 +13,11 @@ export class TokenStorageService {
     window.sessionStorage.clear();
   }
 
+  clean(): void {
+    window.sessionStorage.clear();
+  }
+
+
   public saveToken(token: string): void {
     window.sessionStorage.removeItem(TOKEN_KEY);
     window.sessionStorage.setItem(TOKEN_KEY, token);
@@ -33,11 +38,7 @@ export class TokenStorageService {
       return JSON.parse(user);
     }
 
-    // public getCodeVotant(): any {
-    //   const code = window.sessionStorage.getItem(CDOD_KEY);
-    //   if (code) {
-    //     return JSON.parse(code);
-    //   }
+
 
     return {};
   }

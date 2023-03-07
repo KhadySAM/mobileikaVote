@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RangeCustomEvent } from '@ionic/angular';
 import { RangeValue } from '@ionic/core';
@@ -10,6 +10,8 @@ import { EvaluationServiceService } from '../Services/evaluation-service.service
 import { ProjetsServiceService } from '../Services/projets-service.service';
 import { UserService } from '../Services/user-service.service';
 import { TokenStorageService } from '../Services/token-storage.service';
+import { AuthService } from '../Services/login-services.service';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-evaluation',
@@ -37,6 +39,8 @@ export class EvaluationPage implements OnInit {
     private tokenStorage:TokenStorageService,
     private projetService: ProjetsServiceService,
     private router: Router,
+    private authService: AuthService,
+    @Inject(PLATFORM_ID) private platformId: object,
    
   ) { }
 
@@ -91,27 +95,30 @@ export class EvaluationPage implements OnInit {
       });
 
     }
-    // submitNote() {
-      // this.criteresAff.forEach(critere => {
-      //   this.evaluation.criteres=critere
-      //   this.evaluation.note=critere.note
-      //   this.evaluation.projets=this.prjCrt
-      //   console.log(this.tokenStorage.getUser())
-        // this.evaluation.user={
-        //   'id':this.tokenStorage.getUser().id
-          
-        // }
-        
-
-      //   console.log(this.evaluation)
-      //   this.evaluationService.doEvaluationByJury(this.evaluation).subscribe(data=>{
-      //     console.log(data)
-      //   })
-
-        
-    //   });
-
-    
+ 
+    logout(): void {
+      this.authService.logout1().subscribe({
+        next: res => {
+          console.log(res);
+          this.tokenStorage.clean();
+          this.router.navigate(['/loginjury'])
+        },
+        error: err => {
+          console.log(err);
+        }
+      });
+  
+      if (isPlatformBrowser(this.platformId)) {
+        const navMain = document.getElementById('navbarCollapse');
+        if (navMain) {
+          navMain.onclick = function onClick() {
+            if (navMain) {
+              navMain.classList.remove('show');
+            }
+          };
+        }
+      }
+    }
 
 }
 

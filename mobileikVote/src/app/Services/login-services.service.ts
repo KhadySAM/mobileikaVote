@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -17,8 +17,7 @@ export class AuthService {
     return this.http.post(AUTH_API + 'signin', {
 
       "username":usernameOrEmail,
-    "password":password
-      
+      "password":password
       
     }, httpOptions);
   }
@@ -29,5 +28,10 @@ export class AuthService {
       email,
       password
     }, httpOptions);
+  }
+
+  logout1(): Observable<any> {
+    const req = new HttpRequest('POST', AUTH_API + 'signout', {}, httpOptions);
+    return this.http.request(req);
   }
 }

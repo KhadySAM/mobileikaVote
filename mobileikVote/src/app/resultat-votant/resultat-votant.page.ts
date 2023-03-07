@@ -55,7 +55,6 @@ export class ResultatVotantPage implements OnInit {
     
       this.List = this.allProjets.map((element: any) => {
 
-        console.log(this.allProjets)
         return {
           Valeur: element.noteFinal,
           couleur: '#1746A0',

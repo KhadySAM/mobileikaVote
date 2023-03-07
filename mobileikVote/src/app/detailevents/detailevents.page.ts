@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DetailEventServiceService } from '../Services/detail-event-service.service';
+import { AuthService } from '../Services/login-services.service';
+import { TokenStorageService } from '../Services/token-storage.service';
 
 @Component({
   selector: 'app-detailevents',
@@ -24,7 +27,11 @@ export class DetaileventsPage implements OnInit {
 
   constructor(
     private detaileventService: DetailEventServiceService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private router: Router,
+    private tokenStorage:TokenStorageService,
+    private authService: AuthService,
+    @Inject(PLATFORM_ID) private platformId: object,) { }
 
   ngOnInit() {
 
@@ -44,7 +51,29 @@ export class DetaileventsPage implements OnInit {
 
     })
 
+}
 
+logout(): void {
+  this.authService.logout1().subscribe({
+    next: res => {
+      console.log(res);
+      this.tokenStorage.clean();
+      this.router.navigate(['/loginjury'])
+    },
+    error: err => {
+      console.log(err);
+    }
+  });
 
+  if (isPlatformBrowser(this.platformId)) {
+    const navMain = document.getElementById('navbarCollapse');
+    if (navMain) {
+      navMain.onclick = function onClick() {
+        if (navMain) {
+          navMain.classList.remove('show');
+        }
+      };
+    }
+  }
 }
 }

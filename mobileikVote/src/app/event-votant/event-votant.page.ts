@@ -50,6 +50,9 @@ export class EventVotantPage implements OnInit {
     console.log(idEvents);
     return this.router.navigate(['/detail-events-votant', idEvents])
   }
+
+  
+
   goAllProjetByIdEventsVotant(idEvents: number) {
     console.log(idEvents);
 
@@ -58,10 +61,39 @@ export class EventVotantPage implements OnInit {
     this.router.navigate(['/projet-votant', idEvents]);
   }
 
-  goAllResultatByIdEventsVotant(idEvents:number){
+  // goAllResultatByIdEventsVotant(idEvents:number){
+  //   console.log(idEvents);
+  //   return this.router.navigate(['/resultat-votant', idEvents])
+  // }
+
+  goAllResultatsByIdEvents(idEvents: number): void {
     console.log(idEvents);
-    return this.router.navigate(['/resultat-votant', idEvents])
+
+    // Appeler le service pour obtenir les résultats de l'événement
+    this.serviceEvensts.getResultaByIdEvents(idEvents).subscribe(data => {
+      const resultats = data.length; // Utiliser une variable locale au lieu d'une variable globale
+      console.log(resultats);
+
+      // Vérifier s'il y a des résultats
+      if (resultats === 0) {
+        // Afficher une notification si l'événement n'est pas terminé
+        Swal.fire({
+          position:'center',
+          title: 'Les resultats ne sont pas proclammer !',
+          icon : 'warning',
+          confirmButtonText: 'Ok',
+          confirmButtonColor: 'green',
+          heightAuto: false,
+        });
+      } else {
+        console.log(resultats);
+        // Naviguer vers la page des résultats
+        this.router.navigate(['/resultat-votant', idEvents]);
+      }
+    });
   }
+
+  
 
   popAllProjetByIdEvents(idEvents: number) {
     console.log(idEvents);

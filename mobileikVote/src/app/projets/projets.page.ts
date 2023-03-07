@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { forkJoin } from 'rxjs';
 import { DetailEventServiceService } from '../Services/detail-event-service.service';
+import { AuthService } from '../Services/login-services.service';
 import { ProjetsServiceService } from '../Services/projets-service.service';
 import { TokenStorageService } from '../Services/token-storage.service';
 
@@ -28,9 +30,12 @@ export class ProjetsPage implements OnInit {
   constructor(
     private projetService: ProjetsServiceService,
     private route: ActivatedRoute,
+    private detaileventService: DetailEventServiceService,
     private router: Router,
     private tokenStorage:TokenStorageService,
-    private detaileventService: DetailEventServiceService,) { }
+    private authService: AuthService,
+    @Inject(PLATFORM_ID) private platformId: object,
+    ) { }
 
   ngOnInit() {
 
@@ -85,6 +90,44 @@ export class ProjetsPage implements OnInit {
     return this.router.navigate(['/evaluation', id  ,idProjet])
   }
 
-  
+  logout(): void {
+    this.authService.logout1().subscribe({
+      next: res => {
+        console.log(res);
+        this.tokenStorage.clean();
+        this.router.navigate(['/loginjury'])
+      },
+      error: err => {
+        console.log(err);
+      }
+    });
+
+    if (isPlatformBrowser(this.platformId)) {
+      const navMain = document.getElementById('navbarCollapse');
+      if (navMain) {
+        navMain.onclick = function onClick() {
+          if (navMain) {
+            navMain.classList.remove('show');
+          }
+        };
+      }
+    }
+  }
+
+
+  // logout(): void {
+  //   this.authService.logout1().subscribe({
+  //     next: res => {
+  //       console.log(res);
+  //       this.tokenStorage.clean();
+  //       this.router.navigate(['/login'])
+  //       // window.location.reload();
+  //     },
+  //     error: err => {
+  //       console.log(err);
+  //     }
+  //   });
+
+  // } 
 
 }

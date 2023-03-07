@@ -34,48 +34,11 @@
         <ion-button class="lesBut" expand="block"  (click)="goDetailEventsVotant(idEvents)">Voir +</ion-button>
       </ion-col>
       <ion-col size="4">
-        
-        <!-- <ion-button class="lesBut" expand="block" [disabled]="disabledBtn" (click)="goAllProjetByIdEventsVotant(idEvents)">Evaluer</ion-button> -->
-
         <ion-button class="lesBut" expand="block" (click)="goAllProjetByIdEventsVotant(idEvents)">Evaluer</ion-button>
       </ion-col>
       <ion-col size="4">
-        <ion-button class="lesBut" expand="block" (click)=" goAllResultatByIdEventsVotant(idEvents)">Resultat</ion-button>
+        <ion-button class="lesBut" expand="block" (click)=" goAllResultatsByIdEvents(idEvents)">Resultat</ion-button>
       </ion-col>
     </ion-row>
 </ion-card>
-
-  <!-- <ion-grid class="grid">
-    <ion-row>
-
-      <ion-col size-xs="12">
-
-          <ion-card-header>
-            
-          </ion-card-header>
-
-            <ion-list >
-              <ion-item>
-                <ion-thumbnail slot="start">
-                  <img src="{{logoEvent}}" />
-                </ion-thumbnail>
-                <ion-label>
-                  <ion-accordion-group>
-                    <ion-accordion value="first">
-                      <ion-item slot="header" >
-                        <ion-label>{{nomEvent}}</ion-label>
-                      </ion-item>
-                      <div class="ion-padding" slot="content">
-                        <a (click)="goDetailEventsVotant(idEvents)" >Voir +</a><br>
-                        <a (click)="goAllProjetByIdEventsVotant(idEvents)" >Evaluer</a><br>
-                        <a (click)=" goAllResultatByIdEventsVotant(idEvents)">Resultat</a>
-                      </div>
-                    </ion-accordion>
-                  </ion-accordion-group>
-                </ion-label>
-              </ion-item>
-            </ion-list>
-      </ion-col>
-    </ion-row>
-  </ion-grid> -->
 </ion-content>

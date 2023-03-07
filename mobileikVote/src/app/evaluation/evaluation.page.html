@@ -7,13 +7,14 @@
     </div>
     
     <ion-buttons slot="primary">
-      <ion-button id="popover-button">
+      <ion-icon style="margin-right: 10px; color: #FF731D;" name="power" (click)="logout()"></ion-icon>
+      <!-- <ion-button id="popover-button">
         <div>
           <ion-icon style="color: #FF731D;" name="person"></ion-icon>
         </div>
-      </ion-button>
+      </ion-button> -->
 
-      <ion-popover trigger="popover-button" [dismissOnSelect]="true" class="popUps">
+      <!-- <ion-popover trigger="popover-button" [dismissOnSelect]="true" class="popUps">
         <ng-template class="popUp">
           <ion-content>
             <ion-list>
@@ -28,7 +29,7 @@
             </ion-list>
           </ion-content>
         </ng-template>
-      </ion-popover>
+      </ion-popover> -->
 
     </ion-buttons>
 
